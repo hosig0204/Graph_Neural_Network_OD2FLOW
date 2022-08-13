@@ -26,5 +26,5 @@ The GNN model was used to set-up node to node regression problem. Input data is 
 ## 5. "GNN_test_bed.ipynb": Notebook for feature engineering
 This notebook is a first place you need to visit for feature engineering of the GNN model. There are many flourishing types of GCNs, and you might configure them with different parameters pursuing the best results. Three types of GCNs are implemented in the GNN model as python class definitions: Spectoral Graph Convolutional Layers (Kipf and Welling 2016), Graph Attention Networks (Veličković et al. 2017) and  Graph Attention Networks Improved (Brody et al. 2021). Please, explore many parameters as you want.
 
-## 6. "GNN_operation.py": Compelte execution file
+## 6. "GNN_operation.py": Complete execution file
 Once you've found a suitable GCN layers and configurations of the GNN model, you can deploy that within this execution file. This file offers complete loops of the model training with some auxiliary functions such as reporting, parameters & checkpoint save and figure generation. The CUDA is strongly recommended to accelerate your training. 
