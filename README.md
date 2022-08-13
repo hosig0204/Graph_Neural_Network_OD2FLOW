@@ -9,7 +9,7 @@ All algorithms and models are purely written in Python. So, if you are using rec
 + Plotly & Dash for visualization of the results and parameters.
 + Scikit-learn for statistical methods.
 + Pytorch for general application of the machine learning model.
-+ Pytorch Geometric (PyG) for application of the GNN model.
++ Pytorch Geometric (PyG) for application of the GNN model. <a href= "https://pytorch-geometric.readthedocs.io/en/latest/index.html"> (LINK for PyG) </a>
 + CUDA, if you want to use GPU for training acceleration.
 
 ## 3. Toy Network
@@ -17,4 +17,13 @@ A toy network is a simple traffic network all algorithms are concerning. Is is a
 
 <p align="center"><img src="https://github.com/hosig0204/Graph_Neural_Network_OD2FLOW/blob/971b1b3c3b269545a261b3b61886f5cfb6947739/static/images/graphDefinition.jpg" width="800"></p>
 
-## 3. "GNN_test_bed.ipynb": Notebook  
+## 4. Node2Node Regression Problem with GNN
+The GNN model was used to set-up node to node regression problem. Input data is a set of OD vectors (sliced from the OD matrix) assigned for each node in the graph, and output data is a set of traffic flow vectors (two dimensions) also assigned for each node. The GNN model aims to predict traffic flows from the OD matrix by learning abundant simulation results. Graph Convolutional Layers (GCNs) in the GNN model provides the diffusion mechanisms (Scarselli et al. 2009) which can capture topological information of the graph in learning processes. Total 7200 simulation results from the SUMO that consists of OD matrices and corresponding traffic flows are already collected and transformed into the graph dataset to support PyG.
+
+<p align="center"><img src="https://github.com/hosig0204/Graph_Neural_Network_OD2FLOW/blob/971b1b3c3b269545a261b3b61886f5cfb6947739/static/images/gnnDefinition_node2node.jpg" width="800"></p>
+
+## 5. "GNN_test_bed.ipynb": Notebook for feature engineering
+This notebook is a first place you need to visit for feature engineering of the GNN model. There are many flourishing types of GCNs, and you might configure them with different parameters pursuing the best results. Three types of GCNs are implemented in the GNN model as python class definitions: Spectoral Graph Convolutional Layers (Kipf and Welling 2016), Graph Attention Networks (Veličković et al. 2017) and  Graph Attention Networks Improved (Brody et al. 2021). Please, explore many parameters as you want.
+
+## 6. "GNN_operation.py": Compelte execution file
+Once you've found a suitable GCN layers and configurations of the GNN model, you can deploy that within this execution file. This file offers complete loops of the model training with some auxiliary functions such as reporting, parameters & checkpoint save and figure generation. The CUDA is strongly recommended to accelerate your training. 
