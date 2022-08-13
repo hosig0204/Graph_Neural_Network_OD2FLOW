@@ -15,6 +15,6 @@ All algorithms and models are purely written in Python. So, if you are using rec
 ## 3. Toy Network
 A toy network is a simple traffic network all algorithms are concerning. Is is assumed that 4 blocks of residential area surrounded with links consist of two edges for both directions. And, each edge consists of two lanes. Also, two external links are set up for external influx and out flux of traffic flow. With this network, OD counts (i.e. Nr of Vehicle) and traffic flows (i.e. Veh/hr) are assinged for each edge of links. IMPORTANT: All edges in the network are also nodes in the GNN as actual traffic assignment is conducted on each edge.</br>
 
-<p align="center"><img src="" width="800"></p>
+<p align="center"><img src="https://github.com/hosig0204/Graph_Neural_Network_OD2FLOW/blob/971b1b3c3b269545a261b3b61886f5cfb6947739/static/images/graphDefinition.jpg" width="800"></p>
 
 ## 3. "GNN_test_bed.ipynb": Notebook  
