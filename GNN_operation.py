@@ -78,6 +78,7 @@ else:
 data_sample = dataset_od_flow[0]                            # Sample data to extract dimension info.
 int_dim_node_features = int(data_sample.num_node_features)  # Node feature dimension.
 int_dim_node_out = int(data_sample.y.shape[1])              # Node output value dimension.
+int_num_nodes = int(data_sample.num_nodes)                  # Number of nodes.
 
 #  Define size of datasets
 int_size_dataset = len(dataset_od_flow)
@@ -112,6 +113,7 @@ def train_loop(dataloader, model, loss_fn, optimizer):
     model.train() # Activate drop-out layers.
     
     loss = 0
+    nr_used_data = 0
     size = len(dataloader.dataset)
     
     for batch, data in enumerate(dataloader):
@@ -125,9 +127,10 @@ def train_loop(dataloader, model, loss_fn, optimizer):
         loss.backward()
         optimizer.step()
         # Reporting.
+        nr_used_data += int(len(data.x) / int_num_nodes)
         if batch % 10 == 0 : # For each 10 batchs.
             loss_val = loss.item()
-            nr_used_data = int((batch * len(data.x)) / int_dim_node_features)
+            
             print("Loss: {loss:>.5f}  [{current:>5d}/{size:>5d}]".format(loss=loss_val, current= nr_used_data, size= size))
 
 # Loop for test.
